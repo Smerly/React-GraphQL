@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+.App {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	min-height: 100vh;
+}
+.custom-input {
+	border: 1px black solid;
+	height: 40px;
+	border-radius: 100px 0px 0px 100px;
+}
+
+.custom-button {
+	border: 1px black solid;
+	border-left: none;
+	height: 40px;
+	border-radius: 0px 100px 100px 0px;
+	background-color: rgb(214, 255, 198);
+	font-family: 'Montserrat', sans-serif;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
