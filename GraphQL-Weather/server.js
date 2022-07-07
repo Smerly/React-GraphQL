@@ -10,7 +10,7 @@ const fetch = require('node-fetch');
 // Vars
 
 const app = express();
-const port = 3000;
+const port = 3001;
 app.use(cors());
 
 // Helper functions
@@ -46,7 +46,7 @@ type Weather {
 }
 
 type Query {
-    getWeather(zip: Int!, unit: Units): Weather!
+    getWeather(zip: Int, unit: Units, lat: Float, lon: Float): Weather!
 }
 
 `);
@@ -54,9 +54,10 @@ type Query {
 // Resolver
 
 const root = {
-	getWeather: async ({ zip, unit }) => {
+	getWeather: async ({ zip, unit, lat, lon }) => {
+		console.log(lat, lon);
 		const apiKey = process.env.API_KEY;
-		const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${apiKey}&units=${unit}`;
+		const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zip}&lat=${lat}&lon=${lon}&appid=${apiKey}&units=${unit}`;
 		const res = await fetch(url);
 		const json = await res.json();
 		console.log(json);
